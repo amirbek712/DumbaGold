@@ -59,9 +59,7 @@ export default function ContactPage({ t }) {
           </div>
         </InfoCard>
 
-        <InfoCard icon="📍" title={t.address}>
-          <div style={{ fontSize: 14, color: "#3c3c43", lineHeight: 1.7 }}>{t.addressText}</div>
-        </InfoCard>
+        
 
         <InfoCard icon="📦" title={t.delivery}>
           <div style={{ fontSize: 14, color: "#3c3c43", lineHeight: 1.7 }}>{t.deliveryText}</div>
