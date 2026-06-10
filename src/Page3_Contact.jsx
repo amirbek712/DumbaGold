@@ -1,4 +1,4 @@
-const TG_LINK = "https://t.me/Amirbek_712";
+const TG_LINK = "https://t.me/Mirshahboz";
 const WA_LINK = "https://wa.me/998XXXXXXXXX";
 
 const TgIcon = () => (
