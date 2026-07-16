@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "./Page2_Order.css";
+import logo from "./assets/dumbagold-logo.png";
 
 const TG_BOT_TOKEN = "8853913484:AAFMASO_O6_RcHd82H4ryf5wMwrO3zUyVdM";
 const TG_CHAT_ID   = "600847527";
@@ -53,115 +55,94 @@ export default function OrderPage({ t }) {
     }, 3000);
   };
 
-  const S = {
-    wrap:    { padding: "24px 16px" },
-    title:   { fontSize: 11, fontWeight: 600, color: "#b87800", marginBottom: 14, letterSpacing: 1, textTransform: "uppercase" },
-    cartBox: { background: "#fff", border: "0.5px solid #e8d8a0", borderRadius: 16, padding: "15px 16px", marginBottom: 16 },
-    cartRow: { display: "flex", justifyContent: "space-between", fontSize: 14, color: "#3c3c43", marginBottom: 6 },
-    divider: { height: "0.5px", background: "#e8d8a0", margin: "10px 0" },
-    card:    (pop) => ({ background: "#fff", border: pop ? "1.5px solid #c89010" : "0.5px solid #e8d8a0", borderRadius: 18, padding: 18, marginBottom: 16, position: "relative" }),
-    popTag:  { position: "absolute", top: -12, left: 18, background: "#c89010", color: "#fff", fontSize: 11, fontWeight: 600, padding: "3px 12px", borderRadius: 20 },
-    prodTop: { display: "flex", alignItems: "center", gap: 14 },
-    img:     (pop) => ({ width: pop ? 72 : 60, height: pop ? 72 : 60, background: "#fef5d8", borderRadius: "50%", border: "1px solid #d8b840", display: "flex", alignItems: "center", justifyContent: "center", fontSize: pop ? 34 : 28, flexShrink: 0 }),
-    counter: { display: "flex", alignItems: "center", marginTop: 14, background: "#f2ede4", borderRadius: 12, border: "0.5px solid #e0d090", overflow: "hidden" },
-    cBtn:    (dis) => ({ width: 52, height: 48, background: dis ? "#ede8e0" : "#fef5d8", border: "none", fontSize: 24, color: dis ? "#c8b898" : "#8a5f00", cursor: dis ? "not-allowed" : "pointer", fontFamily: "inherit" }),
-    cNum:    { flex: 1, textAlign: "center", fontSize: 19, fontWeight: 600, color: "#1c1c1e", padding: "10px 0" },
-    btnGold: { background: "#c89010", color: "#fff", border: "none", borderRadius: 14, padding: "15px 16px", fontSize: 16, fontWeight: 600, cursor: "pointer", width: "100%", marginTop: 12, fontFamily: "inherit" },
-    btnDis:  { background: "#e8d8a0", color: "#b09060", border: "none", borderRadius: 14, padding: "15px 16px", fontSize: 16, fontWeight: 600, width: "100%", marginTop: 12, fontFamily: "inherit", cursor: "not-allowed" },
-    overlay: { position: "fixed", inset: 0, background: "rgba(0,0,0,0.45)", zIndex: 200, display: "flex", alignItems: "flex-end", justifyContent: "center" },
-    sheet:   { background: "#fff", borderRadius: "22px 22px 0 0", padding: "20px 20px 44px", width: "100%", maxWidth: 430 },
-    handle:  { width: 36, height: 4, background: "#d1d1d6", borderRadius: 2, margin: "0 auto 20px" },
-    label:   { display: "block", fontSize: 11, fontWeight: 600, color: "#8e8e93", marginBottom: 6, letterSpacing: 0.5, textTransform: "uppercase" },
-    input:   { width: "100%", padding: "14px 16px", fontSize: 16, fontFamily: "inherit", borderRadius: 12, border: "1px solid #e0d8c8", background: "#faf6ef", color: "#1c1c1e", outline: "none", marginBottom: 14, boxSizing: "border-box" },
-    summary: { background: "#faf6ef", border: "0.5px solid #e8d8a0", borderRadius: 12, padding: "12px 14px", marginBottom: 16 },
-  };
-
   return (
     <div>
-      <div style={S.wrap}>
-        <div style={S.title}>{t.chooseSize}</div>
+      <div className="order-wrap">
+        <div className="order-title">{t.chooseSize}</div>
 
         {totalItems > 0 && (
-          <div style={S.cartBox}>
-            <div style={{ fontSize: 15, fontWeight: 700, color: "#1c1c1e", marginBottom: 10 }}>{t.yourOrder}</div>
+          <div className="cart-box">
+            <div className="cart-title">{t.yourOrder}</div>
             {PRODUCTS.map((p) => counts[p.id] > 0 && (
-              <div style={S.cartRow} key={p.id}>
+              <div className="cart-row" key={p.id}>
                 <span>{t.jar} {p.weight} × {counts[p.id]} {t.pcs}</span>
-                <span style={{ color: "#b87800", fontWeight: 600 }}>{fmt(p.price * counts[p.id])}</span>
+                <span className="cart-row-price">{fmt(p.price * counts[p.id])}</span>
               </div>
             ))}
-            <div style={S.divider} />
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div className="divider" />
+            <div className="cart-total-row">
               <div>
-                <div style={{ fontSize: 13, color: "#8e8e93" }}>{t.total}</div>
-                <div style={{ fontSize: 15, fontWeight: 700, color: "#1c1c1e" }}>{totalItems} {t.pcs}</div>
+                <div className="cart-total-label">{t.total}</div>
+                <div className="cart-total-value">{totalItems} {t.pcs}</div>
               </div>
-              <div style={{ textAlign: "right" }}>
-                <div style={{ fontSize: 13, color: "#8e8e93" }}>{t.sum}</div>
-                <div style={{ fontSize: 18, fontWeight: 700, color: "#b87800" }}>{fmt(totalSum)}</div>
+              <div>
+                <div className="cart-total-sum-label">{t.sum}</div>
+                <div className="cart-total-sum-value">{fmt(totalSum)}</div>
               </div>
             </div>
-            <button style={S.btnGold} onClick={() => setShowForm(true)}>{t.placeOrder}</button>
+            <button className="btn-gold" onClick={() => setShowForm(true)}>{t.placeOrder}</button>
           </div>
         )}
 
         {PRODUCTS.map((p) => (
-          <div style={S.card(p.popular)} key={p.id}>
-            {p.popular && <div style={S.popTag}>{t.popularTag}</div>}
-            <div style={S.prodTop}>
-              <div style={S.img(p.popular)}>🫙</div>
+          <div className={`prod-card${p.popular ? " popular" : ""}`} key={p.id}>
+            {p.popular && <div className="popular-tag">{t.popularTag}</div>}
+            <div className="prod-top">
+              <div className={`prod-img${p.popular ? " large" : ""}`}>
+                <img src={logo} alt="DumbaGold" />
+              </div>
               <div>
-                <div style={{ fontSize: 18, fontWeight: 700, color: "#1c1c1e" }}>{t.jar} {p.weight}</div>
-                <div style={{ fontSize: 12, color: "#8e8e93", marginTop: 3 }}>{p.desc}</div>
-                <div style={{ fontSize: 22, color: "#b87800", fontWeight: 700, marginTop: 5 }}>{fmt(p.price)}</div>
+                <div className="prod-weight">{t.jar} {p.weight}</div>
+                <div className="prod-desc">{p.desc}</div>
+                <div className="prod-price">{fmt(p.price)}</div>
               </div>
             </div>
-            <div style={S.counter}>
-              <button style={S.cBtn(counts[p.id] === 0)} onClick={() => change(p.id, -1)} disabled={counts[p.id] === 0}>−</button>
-              <div style={S.cNum}>{counts[p.id]}</div>
-              <button style={S.cBtn(false)} onClick={() => change(p.id, 1)}>+</button>
+            <div className="counter-row">
+              <button className="counter-btn" onClick={() => change(p.id, -1)} disabled={counts[p.id] === 0}>−</button>
+              <div className="counter-num">{counts[p.id]}</div>
+              <button className="counter-btn" onClick={() => change(p.id, 1)}>+</button>
             </div>
             {counts[p.id] > 0
-              ? <button style={S.btnGold} onClick={() => setShowForm(true)}>{t.jar} {p.weight} × {counts[p.id]} {t.pcs}</button>
-              : <button style={S.btnDis} disabled>{t.chooseQty}</button>
+              ? <button className="btn-gold" onClick={() => setShowForm(true)}>{t.jar} {p.weight} × {counts[p.id]} {t.pcs}</button>
+              : <button className="btn-disabled" disabled>{t.chooseQty}</button>
             }
           </div>
         ))}
       </div>
 
       {showForm && (
-        <div style={S.overlay} onClick={(e) => e.target === e.currentTarget && setShowForm(false)}>
-          <div style={S.sheet}>
-            <div style={S.handle} />
+        <div className="form-overlay" onClick={(e) => e.target === e.currentTarget && setShowForm(false)}>
+          <div className="form-sheet">
+            <div className="form-handle" />
             {sent ? (
-              <div style={{ textAlign: "center", padding: "20px 0" }}>
-                <div style={{ fontSize: 60, marginBottom: 14 }}>✅</div>
-                <div style={{ fontSize: 22, fontWeight: 700, color: "#1c1c1e" }}>{t.successTitle}</div>
-                <div style={{ fontSize: 14, color: "#8e8e93", marginTop: 8 }}>{t.successSub}</div>
+              <div className="success-box">
+                <div className="success-icon">✅</div>
+                <div className="success-title">{t.successTitle}</div>
+                <div className="success-sub">{t.successSub}</div>
               </div>
             ) : (
               <>
-                <div style={{ fontSize: 20, fontWeight: 700, color: "#1c1c1e", marginBottom: 4 }}>{t.orderTitle}</div>
-                <div style={{ fontSize: 13, color: "#8e8e93", marginBottom: 20 }}>{t.orderSub}</div>
-                <label style={S.label}>{t.nameLabel}</label>
-                <input style={S.input} placeholder={t.namePlaceholder} value={name} onChange={(e) => setName(e.target.value)} />
-                <label style={S.label}>{t.phoneLabel}</label>
-                <input style={S.input} placeholder={t.phonePlaceholder} type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
-                {error && <div style={{ fontSize: 13, color: "#ff3b30", marginBottom: 12 }}>⚠️ {error}</div>}
-                <div style={S.summary}>
-                  <div style={{ fontSize: 12, fontWeight: 600, color: "#b87800", marginBottom: 8 }}>{t.orderLabel}</div>
+                <div className="form-title">{t.orderTitle}</div>
+                <div className="form-sub">{t.orderSub}</div>
+                <label className="input-label">{t.nameLabel}</label>
+                <input className="input-field" placeholder={t.namePlaceholder} value={name} onChange={(e) => setName(e.target.value)} />
+                <label className="input-label">{t.phoneLabel}</label>
+                <input className="input-field" placeholder={t.phonePlaceholder} type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                {error && <div className="form-error">⚠️ {error}</div>}
+                <div className="order-summary">
+                  <div className="order-summary-title">{t.orderLabel}</div>
                   {PRODUCTS.map((p) => counts[p.id] > 0 && (
-                    <div key={p.id} style={{ fontSize: 14, color: "#3c3c43", marginBottom: 4 }}>
-                      • {t.jar} {p.weight} × {counts[p.id]} {t.pcs} — <span style={{ color: "#b87800", fontWeight: 600 }}>{fmt(p.price * counts[p.id])}</span>
+                    <div key={p.id} className="order-summary-row">
+                      • {t.jar} {p.weight} × {counts[p.id]} {t.pcs} — <span className="order-summary-price">{fmt(p.price * counts[p.id])}</span>
                     </div>
                   ))}
-                  <div style={{ height: "0.5px", background: "#e8d8a0", margin: "8px 0" }} />
-                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: 15, fontWeight: 700, color: "#1c1c1e" }}>
+                  <div className="divider" />
+                  <div className="order-summary-total">
                     <span>{t.total} {totalItems} {t.pcs}</span>
-                    <span style={{ color: "#b87800" }}>{fmt(totalSum)}</span>
+                    <span className="order-summary-total-value">{fmt(totalSum)}</span>
                   </div>
                 </div>
-                <button style={S.btnGold} onClick={handleConfirm}>{t.confirmBtn}</button>
+                <button className="btn-gold" onClick={handleConfirm}>{t.confirmBtn}</button>
               </>
             )}
           </div>

@@ -1,0 +1,91 @@
+/* ============================================
+   СТРАНИЦА 3 — КОНТАКТЫ
+   ============================================ */
+.contact-hero {
+  background: #fff8ee;
+  padding: 44px 24px 28px;
+  text-align: center;
+  border-bottom: 0.5px solid #e0cc90;
+}
+.contact-logo {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(184, 120, 0, 0.25);
+}
+.contact-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.contact-title { font-size: 26px; font-weight: 700; color: #1c1c1e; letter-spacing: -0.8px; }
+.contact-sub { font-size: 13px; color: #8e8e93; margin-top: 6px; letter-spacing: -0.2px; }
+
+.contact-body { padding: 24px 16px; }
+
+.btn-tg {
+  background: #0088cc;
+  border: none;
+  border-radius: 14px;
+  padding: 17px 16px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 12px;
+  font-family: Inter;
+  letter-spacing: -0.3px;
+  transition: opacity 0.15s;
+}
+.btn-wa {
+  background: #25d366;
+  border: none;
+  border-radius: 14px;
+  padding: 17px 16px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 20px;
+  font-family: Inter;
+  letter-spacing: -0.3px;
+  transition: opacity 0.15s;
+}
+.btn-tg:hover, .btn-wa:hover { opacity: 0.9; }
+
+.info-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px 18px;
+  border: 0.5px solid #e8d8a0;
+  margin-bottom: 12px;
+}
+.info-card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.info-card-icon {
+  width: 36px;
+  height: 36px;
+  background: #fef5d8;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+.info-card-label { font-size: 15px; font-weight: 600; color: #1c1c1e; letter-spacing: -0.3px; }
+.info-card-divider { height: 0.5px; background: #f0e8d0; margin-bottom: 10px; }
+.info-card-row { display: flex; justify-content: space-between; font-size: 14px; color: #3c3c43; margin-bottom: 5px; letter-spacing: -0.2px; }
+.info-card-val { font-weight: 600; color: #1c1c1e; }
+.info-card-text { font-size: 14px; color: #3c3c43; line-height: 1.7; letter-spacing: -0.2px; }

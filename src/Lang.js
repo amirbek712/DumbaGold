@@ -40,8 +40,8 @@ export const T = {
     jar: "Банка",
     pcs: "шт.",
     products: [
-      { id: 1, weight: "200 г", price: 60000, desc: "Идеально для пробы", popular: false },
-      { id: 2, weight: "400 г", price: 120000, desc: "Популярный выбор", popular: true },
+      { id: 1, weight: "200 г", price: 75000, desc: "Идеально для пробы", popular: false },
+      { id: 2, weight: "400 г", price: 100000, desc: "Популярный выбор", popular: true },
     ],
     popularTag: "⭐ Популярный",
     chooseQty: "Выберите количество",

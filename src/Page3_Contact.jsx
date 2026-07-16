@@ -1,3 +1,6 @@
+import "./Page3_Contact.css";
+import logo from "./assets/dumbagold-logo.png";
+
 const TG_LINK = "https://t.me/Mirshahboz";
 const WA_LINK = "https://wa.me/998XXXXXXXXX";
 
@@ -14,12 +17,12 @@ const WaIcon = () => (
 );
 
 const InfoCard = ({ icon, title, children }) => (
-  <div style={{ background: "#fff", borderRadius: 16, padding: "16px 18px", border: "0.5px solid #e8d8a0", marginBottom: 12 }}>
-    <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-      <div style={{ width: 36, height: 36, background: "#fef5d8", borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>{icon}</div>
-      <div style={{ fontSize: 15, fontWeight: 600, color: "#1c1c1e" }}>{title}</div>
+  <div className="info-card">
+    <div className="info-card-top">
+      <div className="info-card-icon">{icon}</div>
+      <div className="info-card-label">{title}</div>
     </div>
-    <div style={{ height: "0.5px", background: "#f0e8d0", marginBottom: 10 }} />
+    <div className="info-card-divider" />
     {children}
   </div>
 );
@@ -27,46 +30,40 @@ const InfoCard = ({ icon, title, children }) => (
 export default function ContactPage({ t }) {
   return (
     <div>
-      <div style={{ background: "#fff8ee", padding: "44px 24px 28px", textAlign: "center", borderBottom: "0.5px solid #e0cc90" }}>
-        <div style={{ fontSize: 64, marginBottom: 14 }}>🫙</div>
-        <div style={{ fontSize: 26, fontWeight: 700, color: "#1c1c1e" }}>
-          Dumba<span style={{ color: "#b87800" }}>GOLD</span>
+      <div className="contact-hero">
+        <div className="contact-logo">
+          <img src={logo} alt="DumbaGold" />
         </div>
-        <div style={{ fontSize: 13, color: "#8e8e93", marginTop: 6 }}>{t.contactSub}</div>
+        <div className="contact-title">
+          Dumba<span className="brand-gold">GOLD</span>
+        </div>
+        <div className="contact-sub">{t.contactSub}</div>
       </div>
 
-      <div style={{ padding: "24px 16px" }}>
-        <button
-          onClick={() => window.open(TG_LINK, "_blank")}
-          style={{ background: "#0088cc", border: "none", borderRadius: 14, padding: "17px 16px", color: "#fff", fontSize: 16, fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "center", gap: 10, cursor: "pointer", width: "100%", marginBottom: 12, fontFamily: "inherit" }}
-        >
+      <div className="contact-body">
+        <button className="btn-tg" onClick={() => window.open(TG_LINK, "_blank")}>
           <TgIcon /> {t.tgBtn}
         </button>
 
-        <button
-          onClick={() => window.open(WA_LINK, "_blank")}
-          style={{ background: "#25d366", border: "none", borderRadius: 14, padding: "17px 16px", color: "#fff", fontSize: 16, fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "center", gap: 10, cursor: "pointer", width: "100%", marginBottom: 20, fontFamily: "inherit" }}
-        >
+        <button className="btn-wa" onClick={() => window.open(WA_LINK, "_blank")}>
           <WaIcon /> {t.waBtn}
         </button>
 
         <InfoCard icon="⏰" title={t.workHours}>
-          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14, color: "#3c3c43", marginBottom: 5 }}>
-            <span>{t.monSat}</span><span style={{ fontWeight: 600, color: "#1c1c1e" }}>9:00 — 20:00</span>
+          <div className="info-card-row">
+            <span>{t.monSat}</span><span className="info-card-val">9:00 — 20:00</span>
           </div>
-          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14, color: "#3c3c43" }}>
-            <span>{t.sun}</span><span style={{ fontWeight: 600, color: "#1c1c1e" }}>10:00 — 18:00</span>
+          <div className="info-card-row" style={{ marginBottom: 0 }}>
+            <span>{t.sun}</span><span className="info-card-val">10:00 — 18:00</span>
           </div>
         </InfoCard>
 
-        
-
         <InfoCard icon="📦" title={t.delivery}>
-          <div style={{ fontSize: 14, color: "#3c3c43", lineHeight: 1.7 }}>{t.deliveryText}</div>
+          <div className="info-card-text">{t.deliveryText}</div>
         </InfoCard>
 
         <InfoCard icon="🐑" title={t.about}>
-          <div style={{ fontSize: 14, color: "#3c3c43", lineHeight: 1.7 }}>{t.aboutText}</div>
+          <div className="info-card-text">{t.aboutText}</div>
         </InfoCard>
       </div>
     </div>

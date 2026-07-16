@@ -1,0 +1,97 @@
+/* ── ОБЩИЙ КОНТЕЙНЕР ── */
+.app-wrap {
+  font-family: -apple-system, "SF Pro Display", BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  background: #f2ede4;
+  min-height: 100vh;
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+/* ── ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКА ── */
+.lang-switcher {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 8px 16px 0;
+  background: rgba(255, 248, 235, 0.95);
+}
+.lang-btn {
+  padding: 4px 11px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 20px;
+  border: 1px solid #e0cc90;
+  background: transparent;
+  color: #a08040;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.5px;
+  transition: all 0.15s;
+}
+.lang-btn.active {
+  border-color: #c89010;
+  background: #c89010;
+  color: #fff;
+}
+
+/* ── НАВИГАЦИЯ ── */
+.nav {
+  display: flex;
+  background: rgba(255, 248, 235, 0.95);
+  border-bottom: 0.5px solid #e0cc90;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-btn {
+  flex: 1;
+  text-align: center;
+  padding: 11px 4px 10px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+  color: #aca090;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.nav-btn.active {
+  color: #8a5f00;
+  font-weight: 600;
+  border-bottom: 2px solid #c89010;
+}
+
+/* ── ОБЩАЯ ЗОЛОТАЯ КНОПКА (используется на нескольких страницах) ── */
+.btn-gold {
+  background: #c89010;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 15px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 12px;
+  letter-spacing: -0.3px;
+  font-family: Inter;
+  transition: opacity 0.15s;
+}
+.btn-gold:hover { opacity: 0.9; }
+.btn-disabled {
+  background: #e8d8a0;
+  color: #b09060;
+  border: none;
+  border-radius: 14px;
+  padding: 15px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 12px;
+  letter-spacing: -0.3px;
+  font-family: Inter;
+  cursor: not-allowed;
+}
